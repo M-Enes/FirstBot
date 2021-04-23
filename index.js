@@ -77,12 +77,12 @@ client.on("ready", () => {
     client,
     "!yardım",
     `
-sunucubilgi : sunucu bilgisini gösterir.
+sunucu-bilgi : sunucu bilgisini gösterir.
 durum : bot durumunu değiştirir.
-kt,kanalıtemizle,temizle : kanal mesajlarını temizler.
+kt,kanalı-temizle,temizle : kanal mesajlarını temizler.
 yardım : komut listesini gösterir.
 gömülü : gömülü içerik gösterir.
-gömülüvideo : gömülü video gösterir.
+gömülü-video : gömülü video gösterir.
     `
   );
 });
