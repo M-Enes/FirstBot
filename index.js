@@ -11,6 +11,10 @@ client.on("ready", () => {
     message.channel.send("Aleyküm selam.");
   });
 
+  command(client, ["naber", "nasılsın"], (message) => {
+    message.channel.send("İyiyim. Sağ ol. Sen?");
+  });
+
   command(client, "servers", (message) => {
     client.guilds.cache.forEach((guild) => {
       message.channel.send(
@@ -94,9 +98,10 @@ client.on("message", (message) => {
     message.content === "Sa" ||
     message.content === "SA" ||
     message.content === "Selam" ||
-    message.content === "Selamünaleyküm"
+    message.content === "Selamünaleyküm" ||
+    message.content === "merhaba"
   ) {
-    message.channel.send("Aleyküm selam.");
+    message.channel.send("Aleyküm selam. Hoş geldin.");
   }
 });
 
