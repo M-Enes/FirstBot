@@ -15,7 +15,7 @@ client.on("ready", () => {
     message.channel.send("İyiyim. Sağ ol. Sen?");
   });
 
-  command(client, "servers", (message) => {
+  command(client, "sunucubilgi", (message) => {
     client.guilds.cache.forEach((guild) => {
       message.channel.send(
         `\`${guild.name}\` ${guild.memberCount} kişiden oluşuyor.`
@@ -23,9 +23,9 @@ client.on("ready", () => {
     });
   });
 
-  command(client, "clear", (message) => {
+  command(client, "temizle", (message) => {
     if (message.member.hasPermission("Administrator")) {
-      const number = message.content.replace("!clear ", "");
+      const number = message.content.replace("!temizle ", "");
 
       if (isNaN(number)) message.channel.send("Geçerli bir sayı giriniz.");
       if (number > 100) message.channel.send("100'den küçük bir sayı giriniz.");
@@ -37,15 +37,15 @@ client.on("ready", () => {
     }
   });
 
-  command(client, ["cc", "clearchannel"], (message) => {
+  command(client, ["kt", "kanalıtemizle", "temizle"], (message) => {
     if (message.member.hasPermission("Administrator")) {
       message.channel.messages.fetch().then((results) => {
         message.channel.bulkDelete(results);
       });
     }
   });
-  command(client, "status", (message) => {
-    const content = message.content.replace("!status ", "");
+  command(client, "durum", (message) => {
+    const content = message.content.replace("!durum ", "");
 
     client.user.setPresence({
       activity: {
@@ -53,7 +53,7 @@ client.on("ready", () => {
         type: 0,
       },
     });
-    if (content === "!status") {
+    if (content === "!durum") {
       client.user.setPresence({
         activity: {
           name: "",
@@ -62,7 +62,7 @@ client.on("ready", () => {
       });
     }
   });
-  command(client, "embed", (message) => {
+  command(client, "gömülü", (message) => {
     const logo =
       "https://yt3.ggpht.com/ytc/AAUvwnjJcNyl0gDpJG-MTPUIDBCSKHKDgqYCIKu27ntv=s88-c-k-c0x00ffffff-no-rj";
     const embed = new Discord.MessageEmbed()
@@ -78,7 +78,7 @@ client.on("ready", () => {
 
     message.channel.send(embed);
   });
-  command(client, "videoembed", (message) => {
+  command(client, "gömülüvideo", (message) => {
     const embed = (new Discord.MessageEmbed().setColor("#24ADF3").video =
       "https://www.youtube.com/watch?v=WS-HyULrmcI");
 
@@ -87,8 +87,8 @@ client.on("ready", () => {
 
   privateMessage(
     client,
-    "!help",
-    "servers : server info\nstatus : status change\nhelp : show command list\nembed : embedded content\nvideoembed : video embedded message"
+    "!yardım",
+    "sunucubilgi : sunucu bilgisini gösterir\ndurum : bot durumunu değiştirir.\nkt,kanalıtemizle,temizle : kanal mesajlarını temizler.\nyardım : komut listesini gösterir.\ngömülü : gömülü içerik gösterir.\ngömülüvideo : gömülü video gösterir."
   );
 });
 
