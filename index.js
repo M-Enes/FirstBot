@@ -88,7 +88,14 @@ client.on("ready", () => {
   privateMessage(
     client,
     "!yardım",
-    "sunucubilgi : sunucu bilgisini gösterir\ndurum : bot durumunu değiştirir.\nkt,kanalıtemizle,temizle : kanal mesajlarını temizler.\nyardım : komut listesini gösterir.\ngömülü : gömülü içerik gösterir.\ngömülüvideo : gömülü video gösterir."
+    `
+sunucubilgi : sunucu bilgisini gösterir.
+durum : bot durumunu değiştirir.
+kt,kanalıtemizle,temizle : kanal mesajlarını temizler.
+yardım : komut listesini gösterir.
+gömülü : gömülü içerik gösterir.
+gömülüvideo : gömülü video gösterir.
+    `
   );
 });
 
