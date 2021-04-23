@@ -7,10 +7,6 @@ const command = require("./command");
 client.on("ready", () => {
   console.log("The client is ready!");
 
-  command(client, ["sa", "Sa", "SA"], (message) => {
-    message.channel.send("Aleyküm selam.");
-  });
-
   command(client, "servers", (message) => {
     client.guilds.cache.forEach((guild) => {
       message.channel.send(
