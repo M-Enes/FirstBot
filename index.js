@@ -7,11 +7,7 @@ const command = require("./command");
 client.on("ready", () => {
   console.log("The client is ready!");
 
-  command(client, ["naber", "nasılsın"], (message) => {
-    message.channel.send("İyiyim. Sağ ol. Sen?");
-  });
-
-  command(client, "sunucubilgi", (message) => {
+  command(client, "sunucu-bilgi", (message) => {
     client.guilds.cache.forEach((guild) => {
       message.channel.send(
         `\`${guild.name}\` ${guild.memberCount} kişiden oluşuyor.`
@@ -33,7 +29,7 @@ client.on("ready", () => {
     }
   });
 
-  command(client, ["kt", "kanalıtemizle", "temizle"], (message) => {
+  command(client, ["kt", "kanalı-temizle", "temizle"], (message) => {
     if (message.member.hasPermission("Administrator")) {
       message.channel.messages.fetch().then((results) => {
         message.channel.bulkDelete(results);
@@ -67,14 +63,10 @@ client.on("ready", () => {
       .setAuthor(message.author.username)
       .setImage(logo)
       .setColor("#24ADF3");
-    // .addFields({
-    //   name: "field 1",
-    //   value: "hello world",
-    // });
 
     message.channel.send(embed);
   });
-  command(client, "gömülüvideo", (message) => {
+  command(client, "gömülü-video", (message) => {
     const embed = (new Discord.MessageEmbed().setColor("#24ADF3").video =
       "https://www.youtube.com/watch?v=WS-HyULrmcI");
 
@@ -102,9 +94,45 @@ client.on("message", (message) => {
     message.content === "SA" ||
     message.content === "Selam" ||
     message.content === "Selamünaleyküm" ||
-    message.content === "merhaba"
+    message.content === "merhaba" ||
+    message.content === "Merhaba"
   ) {
     message.channel.send("Aleyküm selam. Hoş geldin.");
+  }
+  else if(
+    message.content === "günaydın" ||
+    message.content === "Günaydın" ||
+    message.content === "günaydın." ||
+    message.content == "Günaydın."
+  )
+  {
+    var today = new Date();
+    var today_str = "";
+    switch (today.getDay()) {
+      case 1:
+        today_str = "Pazartesi";
+        break;
+      case 2:
+        today_str = "Salı";
+        break;
+      case 3:
+        today_str = "Çarşamba";
+        break;
+      case 4:
+        today_str = "Perşembe";
+        break;
+      case 5:
+        today_str = "Cuma";
+        break;
+      case 6:
+        today_str = "Cumartesi";
+        break;
+      case 7:
+        today_str = "Pazar";
+
+    }
+    message.channel.send(`Hayırlı sabahlar. Bugün günlerden ${today_str}.`);
+	  message.react('🙂');
   }
 });
 
